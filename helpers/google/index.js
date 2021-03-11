@@ -210,13 +210,13 @@ var run = function(GoogleConfig, collection, settings, service, callObj, callKey
 
 var addParent = function(GoogleConfig, region, callObj) {
     if (callObj.location && callObj.location == 'global') {
-        return `projects/${GoogleConfig.project}/locations/-`;
+        return `projects/${GoogleConfig.project_id}/locations/-`;
     } else if (callObj.location && callObj.location == 'region') {
-        return `projects/${GoogleConfig.project}/locations/${region}`;
+        return `projects/${GoogleConfig.project_id}/locations/${region}`;
     } else if (callObj.serviceAccount) {
-        return `projects/${GoogleConfig.project}/serviceAccounts/${callObj.params.id}`;
+        return `projects/${GoogleConfig.project_id}/serviceAccounts/${callObj.params.id}`;
     } else {
-        return `projects/${GoogleConfig.project}`;
+        return `projects/${GoogleConfig.project_id}`;
     }
 };
 
