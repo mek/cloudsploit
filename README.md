@@ -2,6 +2,13 @@
 
 [![Build Status](https://travis-ci.com/aquasecurity/cloudsploit.svg?branch=master)](https://travis-ci.com/aquasecurity/cloudsploit)
 
+Note: This is my personal docker image will vary slightly from Aqua's. I'll note my changes here:
+
+ * For GCP, the Service Account JSON file will include project_id and not project. Mucking around with editing the json file provided via Google was problematic. So, I did the following:
+```
+sed -i -e 's/${GoogleConfig.project}/${GoogleConfig.project_id}/g' helpers/google/index.js
+```
+
 CloudSploit by Aqua - Cloud Security Scans
 =================
 
