@@ -312,7 +312,7 @@ var execute = function(LocalGoogleConfig, collection, service, callObj, callKey,
         parentParams = {auth: callObj.params.auth, parent: callObj.params.parent};
         executor['projects']['locations']['keyRings'][service][callKey](parentParams, LocalGoogleConfig, executorCb);
     } else if (callObj.resource) {
-        parentParams = {auth: callObj.auth, resource_: LocalGoogleConfig.project};
+        parentParams = {auth: callObj.auth, resource_: LocalGoogleConfig.project_id};
         executor[service][callKey](parentParams, LocalGoogleConfig, executorCb);
     } else if (callObj.serviceAccount) {
         parentParams = {auth: callObj.params.auth, name: callObj.params.parent};
