@@ -929,6 +929,13 @@ var postcalls = [
                 signatureVersion: 'v4',
                 override: true
             },
+            getBucketLifecycleConfiguration: {
+                reliesOnService: 's3',
+                reliesOnCall: 'listBuckets',
+                deleteRegion: true,
+                signatureVersion: 'v4',
+                override: true
+            },
             getBucketAccelerateConfiguration: {
                 reliesOnService: 's3',
                 reliesOnCall: 'listBuckets',
@@ -1031,6 +1038,12 @@ var postcalls = [
                 reliesOnService: 'elbv2',
                 reliesOnCall: 'describeLoadBalancers',
                 override: true
+            },
+            describeTargetGroupAttributes: {
+                reliesOnService: 'elbv2',
+                reliesOnCall: 'describeTargetGroups',
+                filterKey: 'TargetGroupArn',
+                filterValue: 'TargetGroupArn'
             }
         },
         EMR: {
@@ -1210,6 +1223,14 @@ var postcalls = [
                 reliesOnCall: 'listNotebookInstances',
                 filterKey: 'NotebookInstanceName',
                 filterValue: 'NotebookInstanceName'
+            }
+        },
+        SecretsManager: {
+            describeSecret: {
+                reliesOnService: 'secretsmanager',
+                reliesOnCall: 'listSecrets',
+                filterKey: 'SecretId',
+                filterValue: 'ARN',
             }
         },
         SES: {
